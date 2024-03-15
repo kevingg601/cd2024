@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>./</loc>
-<lastmod>2024-03-08T07:02:34-00:00</lastmod>
+<lastmod>2024-03-15T08:25:28-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./archives.html</loc>
-<lastmod>2024-03-08T07:02:34-00:00</lastmod>
+<lastmod>2024-03-15T08:25:28-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./tags.html</loc>
-<lastmod>2024-03-08T07:02:34-00:00</lastmod>
+<lastmod>2024-03-15T08:25:28-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./categories.html</loc>
-<lastmod>2024-03-08T07:02:34-00:00</lastmod>
+<lastmod>2024-03-15T08:25:28-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -39,8 +39,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>./2024-Spring-w4-blog-tutorial.html</loc>
+<lastmod>2024-03-15T08:25:22+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>./2024-Spring-w3-blog-tutorial.html</loc>
-<lastmod>2024-03-08T07:00:02+08:00</lastmod>
+<lastmod>2024-03-15T08:18:24+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -75,14 +82,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>./category/w3.html</loc>
-<lastmod>2024-03-08T11:00:00+08:06</lastmod>
+<lastmod>2024-03-15T08:18:24+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>./category/w4.html</loc>
+<lastmod>2024-03-15T08:25:22+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>./tag/shang-zi-mu.html</loc>
+<lastmod>2024-03-15T08:25:22+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>./tag/fan-yi.html</loc>
+<lastmod>2024-03-15T08:18:24+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./tag/fen-zu.html</loc>
-<lastmod>2024-03-08T11:00:00+08:06</lastmod>
+<lastmod>2024-03-08T04:51:36+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -96,7 +124,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>./author/41123111.html</loc>
-<lastmod>2024-03-08T11:00:00+08:06</lastmod>
+<lastmod>2024-03-15T08:25:22+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
