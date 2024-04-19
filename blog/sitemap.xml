@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>./</loc>
-<lastmod>2024-04-19T05:32:13-00:00</lastmod>
+<lastmod>2024-04-19T05:38:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./archives.html</loc>
-<lastmod>2024-04-19T05:32:13-00:00</lastmod>
+<lastmod>2024-04-19T05:38:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./tags.html</loc>
-<lastmod>2024-04-19T05:32:13-00:00</lastmod>
+<lastmod>2024-04-19T05:38:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./categories.html</loc>
-<lastmod>2024-04-19T05:32:13-00:00</lastmod>
+<lastmod>2024-04-19T05:38:26-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -40,14 +40,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>./2024-Spring-w9-blog-tutorial.html</loc>
-<lastmod>2024-04-19T05:32:07+08:00</lastmod>
+<lastmod>2024-04-19T05:38:12+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>./2024-Spring-w8-blog-tutorial.html</loc>
-<lastmod>2024-04-19T05:27:23+08:00</lastmod>
+<lastmod>2024-04-19T05:38:19+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -138,7 +138,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>./category/w8.html</loc>
-<lastmod>2024-04-19T05:27:23+08:06</lastmod>
+<lastmod>2024-04-19T05:38:19+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -151,7 +151,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>./tag/huan-wei-zhi.html</loc>
+<loc>./tag/qi-zhong-zi-ping.html</loc>
 <lastmod>2024-04-19T11:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -159,7 +159,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>./tag/yu-chatgpt-tao-lun.html</loc>
-<lastmod>2024-04-19T05:27:23+08:06</lastmod>
+<lastmod>2024-04-19T05:38:19+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
