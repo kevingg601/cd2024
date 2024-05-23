@@ -1,2 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>41123111協同產品設計實習 - w13</title><link href="./" rel="alternate"></link><link href="./feeds/w13.atom.xml" rel="self"></link><id>./</id><updated>2024-05-17T05:39:19+08:00</updated><entry><title>w13</title><link href="./41123111-2024-week-13-%E7%B6%B2%E8%AA%8C%F0%9F%98%81.html" rel="alternate"></link><published>2024-05-10T11:00:00+08:00</published><updated>2024-05-17T05:39:19+08:00</updated><author><name>41123111</name></author><id>tag:None,2024-05-10:./41123111-2024-week-13-網誌😁.html</id><content type="html">&lt;p&gt;還未完成&lt;/p&gt;</content><category term="w13"></category><category term="w13 任務"></category></entry></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>41123111協同產品設計實習 - w13</title><link href="./" rel="alternate"></link><link href="./feeds/w13.atom.xml" rel="self"></link><id>./</id><updated>2024-05-23T14:34:13+08:00</updated><entry><title>課程評分</title><link href="./41123111-2024-week-13-%E7%B6%B2%E8%AA%8C%F0%9F%98%81.html" rel="alternate"></link><published>2024-05-17T11:00:00+08:00</published><updated>2024-05-23T14:34:13+08:00</updated><author><name>41123111</name></author><id>tag:None,2024-05-17:./41123111-2024-week-13-網誌😁.html</id><summary type="html">&lt;p&gt;課程評分:
+學員每週編寫網誌內容佔 40%
+每週上課內容摘要與分組報告執行分工及進度整理&lt;/p&gt;
+&lt;p&gt;相關資料收集與閱讀心得&lt;/p&gt;
+&lt;p&gt;分 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;課程評分:
+學員每週編寫網誌內容佔 40%
+每週上課內容摘要與分組報告執行分工及進度整理&lt;/p&gt;
+&lt;p&gt;相關資料收集與閱讀心得&lt;/p&gt;
+&lt;p&gt;分組期中報告佔 20%
+分組期中 pdf 報告與 mp4 簡報影片&lt;/p&gt;
+&lt;p&gt;每組至多 8 人&lt;/p&gt;
+&lt;p&gt;期中報告題目:&lt;/p&gt;
+&lt;p&gt;ODOO PLM 在協同產品設計上的應用 - 以鋼球平衡台機電控制系統設計為例&lt;/p&gt;
+&lt;p&gt;分組期末報告佔 40%
+分組期末 pdf 報告與 mp4 簡報影片&lt;/p&gt;
+&lt;p&gt;期末報告題目: 網際綜合球類競賽機器人協同設計與模擬&lt;/p&gt;
+&lt;p&gt;競技場景中必須納入數位計時器與類比記分機構&lt;/p&gt;
+&lt;p&gt;每場競技時間為 10 分鐘&lt;/p&gt;
+&lt;p&gt;每隊球員機器人依照各組人數平均分為兩隊&lt;/p&gt;
+&lt;p&gt;每位機器人球員必須同時具備踢球、取球與投球機構&lt;/p&gt;
+&lt;p&gt;雙方陣營各有足球門與籃球框各一具&lt;/p&gt;
+&lt;p&gt;球場中由裁判程式於開場時, 在球場正中央落下 10 球&lt;/p&gt;
+&lt;p&gt;將球踢進對方球門者得 1 分, 將球投入對方籃框者得 5 分&lt;/p&gt;</content><category term="w13"></category><category term="w13 任務"></category></entry></feed>
