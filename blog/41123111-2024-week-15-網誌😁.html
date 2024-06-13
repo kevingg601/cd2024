@@ -42,6 +42,7 @@
 
     <link href="./41123111-2024-week-15-網誌😁.html" rel="canonical" />
 
+        <meta name="description" content="與chatgpt討論網際綜合球類競賽機器人的程式: from zmqRemoteApi import RemoteAPIClient import keyboard import math import time client =...">
 
         <meta name="author" content="41123111">
 
@@ -53,12 +54,12 @@
 <!-- Open Graph -->
 <meta property="og:site_name" content="41123111協同產品設計實習"/>
 <meta property="og:title" content="w15"/>
-<meta property="og:description" content=""/>
+<meta property="og:description" content="與chatgpt討論網際綜合球類競賽機器人的程式: from zmqRemoteApi import RemoteAPIClient import keyboard import math import time client =..."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./41123111-2024-week-15-網誌😁.html"/>
 <meta property="og:type" content="article"/>
 <meta property="article:published_time" content="2024-05-31 11:00:00+08:00"/>
-<meta property="article:modified_time" content="2024-06-07 07:36:55.429856+08:00"/>
+<meta property="article:modified_time" content="2024-06-13 17:27:45.303450+08:00"/>
 <meta property="article:author" content="./author/41123111.html">
 <meta property="article:section" content="w15"/>
 <meta property="article:tag" content="w15"/>
@@ -73,7 +74,7 @@
   "name": "w15",
   "headline": "w15",
   "datePublished": "2024-05-31 11:00:00+08:00",
-  "dateModified": "2024-06-07 07:36:55.429856+08:00",
+  "dateModified": "2024-06-13 17:27:45.303450+08:00",
   "author": {
     "@type": "Person",
     "name": "41123111",
@@ -81,7 +82,7 @@
   },
   "image": "./theme/images/post-bg.jpg",
   "url": "./41123111-2024-week-15-網誌😁.html",
-  "description": ""
+  "description": "與chatgpt討論網際綜合球類競賽機器人的程式: from zmqRemoteApi import RemoteAPIClient import keyboard import math import time client =..."
 }
 </script>
 <script type="text/javascript" src="./../cmsimde/static/syntaxhighlighter/shCore.js"></script>
@@ -210,7 +211,7 @@ init_mathjax();
             | <time datetime="Fri 31 May 2024">Fri 31 May 2024</time>
         </span>
         <!-- TODO : Modified check -->
-            <span class="post-meta"> | Updated on Fri 07 June 2024</span>
+            <span class="post-meta"> | Updated on Thu 13 June 2024</span>
             <div class="post-cover cover" style="background-image: url('./theme/images/post-bg.jpg')">
       </div>
     </header>
@@ -230,7 +231,112 @@ init_mathjax();
         <article class="post">
         <div class="inner">
             <section class="post-content">
-                
+                <p>與chatgpt討論網際綜合球類競賽機器人的程式:
+from zmqRemoteApi import RemoteAPIClient
+import keyboard
+import math
+import time</p>
+<p>client = RemoteAPIClient('localhost', 23000)</p>
+<p>print('Program started')
+sim = client.getObject('sim')</p>
+<p>print('Simulation started')</p>
+<h1>从场景中获取 a_player1, Sphere 和 sensor3</h1>
+<p>a_player1 = sim.getObject('/a_player1')
+Sphere = sim.getObject('/Sphere')
+sensor3 = sim.getObject('/sensor3')</p>
+<h1>定义将球放在球员头上的功能</h1>
+<p>def place_ball_on_head():
+    try:
+        # 获取球员的位置
+        player_position = sim.getObjectPosition(a_player1, -1)</p>
+<div class="highlight"><pre><span></span><code>    # 计算球的位置，在球员的头上方
+    head_position = [
+        player_position[0],  # 在 x 轴上保持不变
+        player_position[1],  # 在 y 轴上保持不变
+        player_position[2] + 0.3  # 在 z 轴上略微抬高
+    ]
+
+    # 设置球的位置
+    sim.setObjectPosition(Sphere, -1, head_position)
+    print(&quot;Ball placed on the player&#39;s head.&quot;)
+
+except Exception as e:
+    print(f&quot;Error while placing ball on head: {e}&quot;)
+</code></pre></div>
+
+<h1>定义投篮功能</h1>
+<p>def shoot():
+    try:
+        # 获取球的位置
+        ball_position = sim.getObjectPosition(Sphere, -1)</p>
+<div class="highlight"><pre><span></span><code>    # 设置球的初始速度，使其具有拋物线运动
+    throw_force = 90.0
+    pitch_angle = 45.0 <span class="gs">* math.pi / 180  # 投篮角度固定在45度</span>
+<span class="gs">    force_vector = [</span>
+<span class="gs">        0,  # 在 x 轴上力为0</span>
+<span class="gs">        throw_force *</span> math.cos(pitch_angle),  # 在 y 轴上的力
+        throw_force * math.sin(pitch_angle)  # 在 z 轴上的力，向上
+    ]
+
+    # 对球施加力
+    sim.addForceAndTorque(Sphere, force_vector, [0, 0, 0])
+    print(&quot;Ball thrown with force.&quot;)
+
+except Exception as e:
+    print(f&quot;Error while shooting: {e}&quot;)
+</code></pre></div>
+
+<h1>定义控制球员移动的函数</h1>
+<p>def move_player(direction):
+    speed = 0.05  # 球员移动速度
+    # 根据方向计算移动增量
+    if direction == 's':
+        delta_position = [speed, 0, 0]  # 在 x 轴上向前移动
+    elif direction == 'w':
+        delta_position = [-speed, 0, 0]  # 在 x 轴上向后移动
+    elif direction == 'd':
+        delta_position = [0, speed, 0]  # 在 y 轴上向右移动
+    elif direction == 'a':
+        delta_position = [0, -speed, 0]  # 在 y 轴上向左移动
+    else:
+        delta_position = [0, 0, 0]  # 不移动</p>
+<div class="highlight"><pre><span></span><code><span class="gh">#</span> 获取当前球员位置
+current_position = sim.getObjectPosition(a_player1, -1)
+<span class="gh">#</span> 计算新的位置
+new_position = [current_position[0] + delta_position[0], current_position[1] + delta_position[1], current_position[2] + delta_position[2]]
+<span class="gh">#</span> 更新球员位置
+sim.setObjectPosition(a_player1, -1, new_position)
+</code></pre></div>
+
+<h1>主循环，监听键盘输入</h1>
+<p>while True:
+    try:
+        # 监听键盘输入，根据按键控制球员移动
+        if keyboard.is_pressed('s'):
+            move_player('s')
+        elif keyboard.is_pressed('w'):
+            move_player('w')
+        elif keyboard.is_pressed('d'):
+            move_player('d')
+        elif keyboard.is_pressed('a'):
+            move_player('a')
+        if keyboard.is_pressed('1'):
+            place_ball_on_head()</p>
+<div class="highlight"><pre><span></span><code>    # 检查 sensor3 是否感测到球
+    sensor_state = sim.readProximitySensor(sensor3)
+    if sensor_state[0]:  # 如果感测到球
+        shoot()
+
+    # 添加短暂延迟，避免占用过多CPU资源
+    time.sleep(0.01)
+
+except KeyboardInterrupt:
+    print(&quot;Program interrupted&quot;)
+    break
+except Exception as e:
+    print(f&quot;Error in main loop: {e}&quot;)
+    break
+</code></pre></div>
             </section>
 
             <section class="post-info">
@@ -255,7 +361,7 @@ init_mathjax();
                         <section class="post-nav-teaser">
                             <i class="ic ic-arrow-right"></i>
                                 <h2 class="post-nav-title">w14</h2>
-                            <p class="post-nav-excerpt"></p>
+                            <p class="post-nav-excerpt">網際綜合球類競賽機器人協同設計: 完成零件檔 完成零件檔</p>
                         </section>
                     </a>
                     <div class="clear"></div>

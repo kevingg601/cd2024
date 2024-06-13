@@ -1,2 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>41123111協同產品設計實習 - w15</title><link href="./" rel="alternate"></link><link href="./feeds/w15.atom.xml" rel="self"></link><id>./</id><updated>2024-06-07T07:36:55+08:00</updated><entry><title>w15</title><link href="./41123111-2024-week-15-%E7%B6%B2%E8%AA%8C%F0%9F%98%81.html" rel="alternate"></link><published>2024-05-31T11:00:00+08:00</published><updated>2024-06-07T07:36:55+08:00</updated><author><name>41123111</name></author><id>tag:None,2024-05-31:./41123111-2024-week-15-網誌😁.html</id><content type="html"></content><category term="w15"></category><category term="w15"></category></entry></feed>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>41123111協同產品設計實習 - w15</title><link href="./" rel="alternate"></link><link href="./feeds/w15.atom.xml" rel="self"></link><id>./</id><updated>2024-06-13T17:27:45+08:00</updated><entry><title>w15</title><link href="./41123111-2024-week-15-%E7%B6%B2%E8%AA%8C%F0%9F%98%81.html" rel="alternate"></link><published>2024-05-31T11:00:00+08:00</published><updated>2024-06-13T17:27:45+08:00</updated><author><name>41123111</name></author><id>tag:None,2024-05-31:./41123111-2024-week-15-網誌😁.html</id><summary type="html">&lt;p&gt;與chatgpt討論網際綜合球類競賽機器人的程式:
+from zmqRemoteApi import RemoteAPIClient
+import keyboard
+import math
+import time&lt;/p&gt;
+&lt;p&gt;client = RemoteAPIClient('localhost', 23000)&lt;/p&gt;
+&lt;p&gt;print('Program started')
+sim = client.getObject('sim')&lt;/p&gt;
+&lt;p&gt;print('Simulation started')&lt;/p&gt;
+&lt;h1&gt;从场景中获取 a_player1, Sphere 和 sensor3&lt;/h1&gt;
+&lt;p&gt;a_player1 = sim.getObject('/a_player1')
+Sphere = sim.getObject('/Sphere')
+sensor3 = sim.getObject('/sensor3')&lt;/p&gt;
+&lt;h1&gt;定义 …&lt;/h1&gt;</summary><content type="html">&lt;p&gt;與chatgpt討論網際綜合球類競賽機器人的程式:
+from zmqRemoteApi import RemoteAPIClient
+import keyboard
+import math
+import time&lt;/p&gt;
+&lt;p&gt;client = RemoteAPIClient('localhost', 23000)&lt;/p&gt;
+&lt;p&gt;print('Program started')
+sim = client.getObject('sim')&lt;/p&gt;
+&lt;p&gt;print('Simulation started')&lt;/p&gt;
+&lt;h1&gt;从场景中获取 a_player1, Sphere 和 sensor3&lt;/h1&gt;
+&lt;p&gt;a_player1 = sim.getObject('/a_player1')
+Sphere = sim.getObject('/Sphere')
+sensor3 = sim.getObject('/sensor3')&lt;/p&gt;
+&lt;h1&gt;定义将球放在球员头上的功能&lt;/h1&gt;
+&lt;p&gt;def place_ball_on_head():
+    try:
+        # 获取球员的位置
+        player_position = sim.getObjectPosition(a_player1, -1)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    # 计算球的位置，在球员的头上方
+    head_position = [
+        player_position[0],  # 在 x 轴上保持不变
+        player_position[1],  # 在 y 轴上保持不变
+        player_position[2] + 0.3  # 在 z 轴上略微抬高
+    ]
+
+    # 设置球的位置
+    sim.setObjectPosition(Sphere, -1, head_position)
+    print(&amp;quot;Ball placed on the player&amp;#39;s head.&amp;quot;)
+
+except Exception as e:
+    print(f&amp;quot;Error while placing ball on head: {e}&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;定义投篮功能&lt;/h1&gt;
+&lt;p&gt;def shoot():
+    try:
+        # 获取球的位置
+        ball_position = sim.getObjectPosition(Sphere, -1)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    # 设置球的初始速度，使其具有拋物线运动
+    throw_force = 90.0
+    pitch_angle = 45.0 &lt;span class="gs"&gt;* math.pi / 180  # 投篮角度固定在45度&lt;/span&gt;
+&lt;span class="gs"&gt;    force_vector = [&lt;/span&gt;
+&lt;span class="gs"&gt;        0,  # 在 x 轴上力为0&lt;/span&gt;
+&lt;span class="gs"&gt;        throw_force *&lt;/span&gt; math.cos(pitch_angle),  # 在 y 轴上的力
+        throw_force * math.sin(pitch_angle)  # 在 z 轴上的力，向上
+    ]
+
+    # 对球施加力
+    sim.addForceAndTorque(Sphere, force_vector, [0, 0, 0])
+    print(&amp;quot;Ball thrown with force.&amp;quot;)
+
+except Exception as e:
+    print(f&amp;quot;Error while shooting: {e}&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;定义控制球员移动的函数&lt;/h1&gt;
+&lt;p&gt;def move_player(direction):
+    speed = 0.05  # 球员移动速度
+    # 根据方向计算移动增量
+    if direction == 's':
+        delta_position = [speed, 0, 0]  # 在 x 轴上向前移动
+    elif direction == 'w':
+        delta_position = [-speed, 0, 0]  # 在 x 轴上向后移动
+    elif direction == 'd':
+        delta_position = [0, speed, 0]  # 在 y 轴上向右移动
+    elif direction == 'a':
+        delta_position = [0, -speed, 0]  # 在 y 轴上向左移动
+    else:
+        delta_position = [0, 0, 0]  # 不移动&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gh"&gt;#&lt;/span&gt; 获取当前球员位置
+current_position = sim.getObjectPosition(a_player1, -1)
+&lt;span class="gh"&gt;#&lt;/span&gt; 计算新的位置
+new_position = [current_position[0] + delta_position[0], current_position[1] + delta_position[1], current_position[2] + delta_position[2]]
+&lt;span class="gh"&gt;#&lt;/span&gt; 更新球员位置
+sim.setObjectPosition(a_player1, -1, new_position)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1&gt;主循环，监听键盘输入&lt;/h1&gt;
+&lt;p&gt;while True:
+    try:
+        # 监听键盘输入，根据按键控制球员移动
+        if keyboard.is_pressed('s'):
+            move_player('s')
+        elif keyboard.is_pressed('w'):
+            move_player('w')
+        elif keyboard.is_pressed('d'):
+            move_player('d')
+        elif keyboard.is_pressed('a'):
+            move_player('a')
+        if keyboard.is_pressed('1'):
+            place_ball_on_head()&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;    # 检查 sensor3 是否感测到球
+    sensor_state = sim.readProximitySensor(sensor3)
+    if sensor_state[0]:  # 如果感测到球
+        shoot()
+
+    # 添加短暂延迟，避免占用过多CPU资源
+    time.sleep(0.01)
+
+except KeyboardInterrupt:
+    print(&amp;quot;Program interrupted&amp;quot;)
+    break
+except Exception as e:
+    print(f&amp;quot;Error in main loop: {e}&amp;quot;)
+    break
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="w15"></category><category term="w15"></category></entry></feed>
